@@ -1,0 +1,14 @@
+.Redirect {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  z-index: 1;
+
+  box-sizing: border-box;
+  svg circle {
+    transition: all 0.3s ease;
+  }
+  svg:hover circle {
+    fill: rgb(63, 100, 179);
+  }
+}

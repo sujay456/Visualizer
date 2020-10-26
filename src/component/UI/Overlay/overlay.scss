@@ -1,0 +1,10 @@
+.Overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(245, 247, 252, 0.9);
+  cursor: pointer;
+  z-index: 1;
+}

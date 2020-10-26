@@ -1,0 +1,14 @@
+.Hamburger {
+  position: fixed;
+  z-index: 3; //odd one because of the overlay , it should be above the overlay
+  top: 40px;
+  right: 40px;
+  cursor: pointer;
+
+  .Outerstroke {
+    stroke-dasharray: 163.38577270507812;
+    // stroke-dasharray: 10;
+    transition: all 0.5s ease;
+    stroke-dashoffset: 163.38577270507812;
+  }
+}

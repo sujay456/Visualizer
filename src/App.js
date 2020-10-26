@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import './App.scss';
+import Home from './component/Home/home';
+import HomeButton from './component/homePageRedirectButton/redirectButton';
+import Hamburger from './component/UI/hamburgerIcon/hamburger';
+import Overlay from './component/UI/Overlay/overlay';
+import SideDrawer from './component/UI/sideDrawer/sideDrawer';
 
 function App() {
+
+ 
+  const [loadedHeader,setLoaded]=useState(false);
+  const[showOverlay,setOverlay]=useState(false);
+
+  const headerAnimationDone=()=>{
+    console.log('Header animation done');
+    setLoaded(true);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <React.Fragment>
+     {loadedHeader?<Hamburger setOverlay={setOverlay} />:null}
+     {loadedHeader?<HomeButton/>:null}
+     <Overlay show={showOverlay} />
+     <Home loadedHeader={loadedHeader} headerAnimationDone={headerAnimationDone} />
+    <SideDrawer />
+   </React.Fragment>
+
+
   );
 }
 
