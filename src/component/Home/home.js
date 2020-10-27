@@ -8,7 +8,7 @@ const Home=(props)=>{
     return(
         <React.Fragment>
             {props.loadedHeader?<Background />:null}
-            <Header headerAnimationDone={props.headerAnimationDone} />
+            <Header loadedHeader={props.loadedHeader} headerAnimationDone={props.headerAnimationDone} />
         </React.Fragment>
     );
 

@@ -1,0 +1,12 @@
+.Task {
+  text-align: left;
+  margin-bottom: 40px;
+  cursor: pointer;
+  p {
+    font-size: 1.8rem;
+    transition: all 0.2s ease;
+    &:hover {
+      color: black;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.Social {
+  position: absolute;
+  width: 100%;
+  padding: 10px 20px;
+  bottom: 0px;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  .icon {
+    display: inline-block;
+  }
+  .github a {
+    color: black;
+  }
+  .linkedin a {
+    color: rgb(25, 120, 209);
+  }
+}

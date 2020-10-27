@@ -10,6 +10,11 @@ const Header =(props)=>{
     useEffect(()=>{
         // console.log(svgRef.current);
         // gsap.from('svg g',{stagger:0.01,y:10,opacity:0})
+
+        if(props.loadedHeader)
+        {
+            return ;
+        }
         gsap.registerPlugin(MotionPathPlugin);
         const tl = gsap.timeline();
         const MotionBall=[{y:-70,x:0},{y:-25,x:36},{x:20,y:-30},{x:0,y:2}]

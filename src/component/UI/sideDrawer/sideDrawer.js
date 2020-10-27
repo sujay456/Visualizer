@@ -18,14 +18,12 @@ const SideDrawer=(props)=>{
         }
         else
         {
-        
-
             gsap.to(sideDrawerRef.current,{xPercent:100,delay:0.1,ease:'Power4.easeInOut',duration:0.5});
         }
     },[props.sideDrawer]);
     return(
         <div ref={sideDrawerRef} className="SideDrawer">
-
+            {props.children}
         </div>
     );
 }
