@@ -23,6 +23,7 @@ const SideDrawer=(props)=>{
     },[props.sideDrawer]);
     return(
         <div ref={sideDrawerRef} className="SideDrawer">
+            
             {props.children}
         </div>
     );

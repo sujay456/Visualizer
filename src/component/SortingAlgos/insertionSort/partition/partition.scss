@@ -1,0 +1,18 @@
+.Partition {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 27%;
+  transition: all 0.3s ease;
+  .left {
+    height: 80px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-right: 2px dashed grey;
+  }
+  .right {
+    height: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}

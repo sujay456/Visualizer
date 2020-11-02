@@ -7,6 +7,8 @@ import Overlay from './component/UI/Overlay/overlay';
 import SideDrawer from './component/UI/sideDrawer/sideDrawer';
 import SideDrawerContent from './component/sideDrawerContent/Sdcontent';
 import {Switch,Route,withRouter} from 'react-router-dom';
+import Tloader from './component/UI/translateLoader/tLoader';
+import InsertionSort from './component/SortingAlgos/insertionSort/insertonSort';
 
 function App(props) {
 
@@ -19,8 +21,6 @@ function App(props) {
   }
   
   useEffect(()=>{
-    
-    
     if(props.location.pathname!=='/')
       headerAnimationDone();
   },[]);
@@ -33,9 +33,12 @@ function App(props) {
      <SideDrawer >
       <SideDrawerContent />
     </SideDrawer>
+    <Tloader />
     {/* here we will be doing the switch */}
     <Switch>
+      <Route path="/insertionSort"  component={InsertionSort} />
       <Route path="/" exact render={()=><Home loadedHeader={loadedHeader} headerAnimationDone={headerAnimationDone} />} />
+
     </Switch>
      
     

@@ -1,0 +1,17 @@
+.Loader {
+  width: 110vw;
+  height: 100vh;
+  position: absolute;
+  // transform: translateX(-100%);
+  background: #0b66ee;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  // transition: all 0.1s cubic-bezier(0.5, 0.7, 0.4, 1);
+  z-index: 2; //below the sideDrawer
+  clip-path: polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%);
+  p {
+    color: white;
+    font-size: 2rem;
+  }
+}

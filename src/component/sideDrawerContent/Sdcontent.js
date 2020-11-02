@@ -5,6 +5,7 @@ import './sdc.scss';
 import Social from './social/social';
 import gsap from 'gsap';
 import {connect} from 'react-redux';
+import * as actionType from '../../store/actions/actions';
 
 const SideContent=(props)=>{
     useEffect(()=>{
@@ -13,12 +14,26 @@ const SideContent=(props)=>{
             gsap.from('.SideDrawerContent div',{y:50,opacity:0,stagger:0.1,delay:0.4});
        }
     },[props.sideDrawer]);
+    const SortingAlgos=[
+        {name:'Insertion Sort',link:"/insertionSort" },
+        {name:'Bubble Sort',link:"/bubbleSort" },
+        {name:'Merge Sort',link:"/mergeSort" },
+        
+    ]
+    const translateLoading=(name)=>{
+        console.log('hello');
+        props.setLoader(name);
+        props.setDrawer();
+    }
     return (
         <div className="SideDrawerContent">
+            <div className="SideDrawerContent-header">
+                <p >choose what you want to visualize <span role="img" aria-label="smiley">😊</span>!</p>
+            </div>
             <Task color="#BD7045" taskname="Sorting Algorithms" >
-                <SubTask link='/insertionSort' >Insertion Sort</SubTask>
-                <SubTask link="/bubbleSort">Bubble Sort</SubTask>
-                <SubTask link="/mergeSort" >Merge Sort</SubTask>
+                {SortingAlgos.map((algos,_)=>{
+                    return <SubTask onclick={()=>{translateLoading(algos.name)}} key={algos.link+_} link={algos.link} >{algos.name}</SubTask>
+                })}           
             </Task>
             <Task color="#359924" taskname="Trees" >
                 <SubTask link="/bst" >Binary Search Tree</SubTask>
@@ -31,7 +46,16 @@ const SideContent=(props)=>{
 const mapStateToProps=(state)=>{
 
     return {
-        sideDrawer:state.sideDrawer
+        sideDrawer:state.sideDrawer,
+        name:state.translateLoader
     }
 }
-export default connect(mapStateToProps,null)(SideContent);
+
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        setLoader:(name)=>{dispatch({type:actionType.SET_TRANSLATINGlOADER,name:name})},
+        setDrawer:()=>{dispatch({type:actionType.SET_SIDEDRAWER})}
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SideContent);

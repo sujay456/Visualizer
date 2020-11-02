@@ -2,6 +2,13 @@
   padding: 20px 40px;
   box-sizing: border-box;
   position: relative;
-  top: 12%;
+  top: 10%;
   height: 80%;
+  text-align: left;
+  &-header {
+    position: relative;
+    top: -8%;
+    color: #505050;
+    text-transform: capitalize;
+  }
 }

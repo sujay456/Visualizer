@@ -2,6 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {motion} from 'framer-motion';
 import './redirect.scss';
+import { connect } from 'react-redux';
+import * as actionType from '../../store/actions/actions';
+
 const Button=(props)=>{
 
     
@@ -21,7 +24,7 @@ const Button=(props)=>{
 
     return (
         <motion.div variants={homeButtonVariant} initial="hidden" animate="visible" transition={{type:'spring',duration:0.7,stiffness:80}} className="Redirect">
-        <Link to="/" >
+        <Link onClick={()=>{ props.setLoader('')}} to="/" >
             <svg width="55" height="54" viewBox="0 0 55 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="link">
                 <circle  id="Ellipse 7" cx="27.5" cy="27" r="27" fill="#26B4E0"/>
@@ -38,5 +41,11 @@ const Button=(props)=>{
         
     );
 }
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        setLoader:(name)=>{dispatch({type:actionType.SET_TRANSLATINGlOADER,name:name})},
+        
+    }
+}
 
-export default Button;
+export default connect(null,mapDispatchToProps)(Button);

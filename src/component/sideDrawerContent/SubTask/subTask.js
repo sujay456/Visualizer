@@ -6,7 +6,7 @@ const SubTask=(props)=>{
     
 
     return(
-        <NavLink className="subTask" to={props.link}>{props.children}</NavLink>
+        <NavLink onClick={props.onclick} className="subTask" to={props.link}>{props.children}</NavLink>
     );
 }
 
