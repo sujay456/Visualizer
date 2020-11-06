@@ -147,6 +147,7 @@ const  InsertionSort=(props)=>
    function insertionsort(i,j,keyChange)
    {
         setMoveP(false);
+        props.setConsoleMessage(`i:${i}  j:${j}`,true);
 
         console.log('Insertion sort');
         console.log(i,j);
@@ -164,7 +165,7 @@ const  InsertionSort=(props)=>
         if(i===arr.length)
         {
             props.setConsoleMessage('Completed! :)',true);
-            
+            toggle(true);
 
             return;
         }
@@ -231,7 +232,7 @@ const  InsertionSort=(props)=>
     
 
        return(
-           <motion.div className="InsertionSort" initial={{opacity:0}} animate={{opacity:1}} transition={{duration:2}} >
+           <motion.div className="InsertionSort" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}} >
                <p className="InsertionSort-header">Insertion Sort</p>
    
                <div className="InsertionSort-animation">
@@ -245,7 +246,14 @@ const  InsertionSort=(props)=>
                     })}
                    <Partition enabled={enabled} pos={posPartition} shouldmoveP={shouldmoveP} setAgain={again}  moveParition={(partitionRef)=>{ moveParition(partitionRef); }} />
                </div>
-               <PlayButton enabled={enabled} paused={paused} toggle={()=>{  if(!paused) return; startSorting()}}  />
+               <PlayButton enabled={enabled} paused={paused} toggle={()=>{  if(!paused) return;setAgain(again+1);
+                    clearAttributes();
+                    globalArray=[];
+                    globalDomArray=[];
+                    setGsap();
+                    setPos(); 
+                    startSorting()}}  
+                />
                <Interaction setArray={(arr)=>setArray(arr)} toggle={toggle} />
                
            </motion.div>
@@ -265,3 +273,6 @@ const mapDispatchToProps=(dispatch)=>{
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(InsertionSort);
+
+
+  

@@ -9,7 +9,7 @@ import SideDrawerContent from './component/sideDrawerContent/Sdcontent';
 import {Switch,Route,withRouter} from 'react-router-dom';
 import Tloader from './component/UI/translateLoader/tLoader';
 import InsertionSort from './component/SortingAlgos/insertionSort/insertonSort';
-
+import QuickSort from './component/SortingAlgos/QuickSort/QuickSort';
 function App(props) {
 
  
@@ -37,6 +37,7 @@ function App(props) {
     {/* here we will be doing the switch */}
     <Switch>
       <Route path="/insertionSort"  component={InsertionSort} />
+      <Route path="/quickSort" component={QuickSort} />
       <Route path="/" exact render={()=><Home loadedHeader={loadedHeader} headerAnimationDone={headerAnimationDone} />} />
 
     </Switch>

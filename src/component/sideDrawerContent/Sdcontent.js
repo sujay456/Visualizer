@@ -16,7 +16,7 @@ const SideContent=(props)=>{
     },[props.sideDrawer]);
     const SortingAlgos=[
         {name:'Insertion Sort',link:"/insertionSort" },
-        {name:'Bubble Sort',link:"/bubbleSort" },
+        {name:'Quick Sort',link:"/quickSort" },
         {name:'Merge Sort',link:"/mergeSort" },
         
     ]
