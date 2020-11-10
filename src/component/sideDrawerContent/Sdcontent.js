@@ -17,7 +17,7 @@ const SideContent=(props)=>{
     const SortingAlgos=[
         {name:'Insertion Sort',link:"/insertionSort" },
         {name:'Quick Sort',link:"/quickSort" },
-        {name:'Merge Sort',link:"/mergeSort" },
+        {name:'Bubble Sort',link:"/bubbleSort" },
         
     ]
     const translateLoading=(name)=>{

@@ -4,7 +4,8 @@ import {motion} from 'framer-motion';
 import Interaction from '../Interaction/interaction';
 import PlayButton from '../playButton/playButton';
 import {gsap} from 'gsap';
-
+import {connect} from 'react-redux';
+import * as actionType from '../../../store/actions/actions';
 
 const QuickSort=(props)=>{
 
@@ -36,10 +37,7 @@ const QuickSort=(props)=>{
            gsap.set(globalDomArray[i],{backgroundColor:'#006E75',border:'1px solid #333'});
        }
    }
-   function setColorPivot(pivotele)
-   {
-        gsap.set(pivotele,{background:'#FF7A00'});
-   }
+  
    function clearColor()
    {
         for(let i=0;i<arr.length;++i)
@@ -94,7 +92,7 @@ const QuickSort=(props)=>{
               
 
             i++;
-            const tl1=gsap.timeline();
+            const tl1=gsap.timeline({defaults:{duration:0.3}});
             let boxI=globalDomArray[i];
             console.log("swapping normal ",globalArray[i],globalArray[j]);
             tl1
@@ -161,7 +159,8 @@ const QuickSort=(props)=>{
             
             clearColor();
             setDiviedArrayColor(low,high);
-
+            let s=new String(globalArray.slice(low,high+1));
+            props.setConsoleMessage(`Selected array=> ${s}`);
             
             partition(low,high);
        }
@@ -171,12 +170,18 @@ const QuickSort=(props)=>{
             console.log('Sorting Completed');   
             console.log(globalArray);     
             let flag=false;
-            for(let c=0;c<arr.length;++c)
+            let temp=[...arr];
+            temp.sort();
+            for(let c=0;c<temp.length;++c)
             {
-                flag=arr[i]^globalArray[i]?false:true;
+                flag=temp[i]^globalArray[i]?false:true;
             }
             if(flag)
-                toggle(true);
+            {
+                console.log('Yo');
+            //   props.setConsoleMessage('Completed! :)',true);
+              toggle(true);
+            }
 
              return;
        }
@@ -226,9 +231,19 @@ const QuickSort=(props)=>{
                     startSorting()}
                 }  
             />
-            <Interaction setArray={(arr)=>setArray(arr)} toggle={toggle} />
+            <Interaction setArray={(arr)=>setArray(arr)} toggle={toggle} paused={paused} />
         </motion.div>
     );
 }
+const mapStateToProps=(state)=>{
+    return{
+        consoleMessage:state.consoleMessage
+    }
+}
 
-export default QuickSort;
+const mapDispatchToProps=(dispatch)=>{
+    return {
+        setConsoleMessage:(mssg,type)=>{dispatch({type:actionType.SET_CONSOLEMESSAGE,mssg:mssg,mssgType:type})}
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(QuickSort);

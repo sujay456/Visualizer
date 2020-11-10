@@ -8,6 +8,8 @@ const Interaction =(props)=>{
     const inputRef=useRef(null);
 
     const getInput=()=>{
+        if(!props.paused)
+            return;
         let StringArray=inputRef.current.innerText.split(',');
         // console.log(StringArray);
 

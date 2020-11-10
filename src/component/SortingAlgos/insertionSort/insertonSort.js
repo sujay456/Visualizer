@@ -254,7 +254,7 @@ const  InsertionSort=(props)=>
                     setPos(); 
                     startSorting()}}  
                 />
-               <Interaction setArray={(arr)=>setArray(arr)} toggle={toggle} />
+               <Interaction setArray={(arr)=>setArray(arr)} toggle={toggle} paused={paused} />
                
            </motion.div>
        );

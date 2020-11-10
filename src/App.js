@@ -10,6 +10,7 @@ import {Switch,Route,withRouter} from 'react-router-dom';
 import Tloader from './component/UI/translateLoader/tLoader';
 import InsertionSort from './component/SortingAlgos/insertionSort/insertonSort';
 import QuickSort from './component/SortingAlgos/QuickSort/QuickSort';
+import BubbleSort from './component/SortingAlgos/bubbleSort/BubbleSort';
 function App(props) {
 
  
@@ -38,6 +39,7 @@ function App(props) {
     <Switch>
       <Route path="/insertionSort"  component={InsertionSort} />
       <Route path="/quickSort" component={QuickSort} />
+      <Route path="/bubbleSort" component={BubbleSort} />
       <Route path="/" exact render={()=><Home loadedHeader={loadedHeader} headerAnimationDone={headerAnimationDone} />} />
 
     </Switch>
