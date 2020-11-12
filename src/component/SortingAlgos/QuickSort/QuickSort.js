@@ -34,14 +34,14 @@ const QuickSort=(props)=>{
        console.log('I ran divide array',low,high);
        for(let i=low;i<=high;++i)
        {
-           gsap.set(globalDomArray[i],{backgroundColor:'#006E75',border:'1px solid #333'});
+           gsap.set(globalDomArray[i],{backgroundColor:'#006E75'});
        }
    }
   
    function clearColor()
    {
         for(let i=0;i<arr.length;++i)
-            gsap.set(globalDomArray[i],{backgroundColor:'#41E16E',border:'none'}) //this is making the array green again (whole array to green again)
+            gsap.set(globalDomArray[i],{backgroundColor:'#41E16E'}) //this is making the array green again (whole array to green again)
         console.log('I ran go green')
    }
    function clearPivot(pivotele)

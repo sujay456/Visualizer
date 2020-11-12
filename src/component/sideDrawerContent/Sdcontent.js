@@ -18,6 +18,7 @@ const SideContent=(props)=>{
         {name:'Insertion Sort',link:"/insertionSort" },
         {name:'Quick Sort',link:"/quickSort" },
         {name:'Bubble Sort',link:"/bubbleSort" },
+        {name:'Shell Sort',link:'/shellsort'},
         
     ]
     const translateLoading=(name)=>{
