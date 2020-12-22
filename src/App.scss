@@ -11,7 +11,15 @@ body,
   padding: 0;
   text-align: center;
 }
-
+input,
+textarea,
+button,
+select,
+a,
+svg,
+div {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 body {
   background-color: white;
   position: fixed;

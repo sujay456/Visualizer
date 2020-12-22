@@ -1,4 +1,4 @@
-import React,{useEffect,useRef, useState} from 'react';
+import React,{useEffect,useRef} from 'react';
 import './partition.scss';
 // import gsap from 'gsap';
 const Partition=(props)=>{

@@ -37,7 +37,7 @@ const SideContent=(props)=>{
                 })}           
             </Task>
             <Task color="#359924" taskname="Trees" >
-                <SubTask link="/no" onclick={ ()=> translateLoading('Binary Search Tree')} >Binary Search Tree</SubTask>
+                <SubTask link="/bst" onclick={ ()=> translateLoading('Binary Search Tree')} >Binary Search Tree</SubTask>
                 <SubTask link="/no" onclick={ ()=> translateLoading('Red Black Tree') } >Red Black Tree</SubTask>
             </Task>
             <Social />

@@ -1,0 +1,31 @@
+.treeInteraction {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  height: 100px;
+
+  &-header {
+    text-align: start;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #dfdfdf;
+
+    select {
+      border-radius: 3px;
+      width: 150px;
+      height: 100%;
+    }
+  }
+  &-input {
+    height: 70%;
+    text-align: start;
+    outline: none;
+    padding: 0px 5px;
+    box-sizing: border-box;
+  }
+  &-input:empty::before {
+    content: "Enter the order in the manner :-  1,2,3,4,4...";
+    color: #969696;
+  }
+}

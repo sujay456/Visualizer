@@ -1,4 +1,4 @@
-import React,{useEffect,useState,useRef} from 'react';
+import React,{useEffect,useState} from 'react';
 import {motion} from 'framer-motion';
 import './insertion.scss';
 import {gsap} from 'gsap';
@@ -17,7 +17,7 @@ const  InsertionSort=(props)=>
     const [posPartition,setPosition]=useState(0);
     const [shouldmoveP,setMoveP]=useState(false);
     const [again,setAgain]=useState(1);
-    let partitionRef=null;
+    
    window.addEventListener('resize',()=>{
        
        console.log('resizing');
@@ -26,13 +26,7 @@ const  InsertionSort=(props)=>
    const tl=gsap.timeline();
 
 
-   function usePrevious(value) {
-    const ref = useRef();
-    useEffect(() => {
-      ref.current = value;
-    });
-    return ref.current;
-  }
+   
     //function for setting the color red;
    function setColor(boxI,boxJ){
 
@@ -221,8 +215,8 @@ const  InsertionSort=(props)=>
    useEffect(()=>{
    setAgain(again+1);
    clearAttributes();
-   globalArray=[];
-   globalDomArray=[];
+//    globalArray=[];
+//    globalDomArray=[];
    setGsap();
     setPos();
    

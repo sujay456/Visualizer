@@ -36,6 +36,10 @@ const QuickSort=(props)=>{
        {
            gsap.set(globalDomArray[i],{backgroundColor:'#006E75'});
        }
+       let s=String(globalArray.slice(low,high+1));
+            props.setConsoleMessage(`Selected array=> ${s}`);
+            
+            partition(low,high);
    }
   
    function clearColor()
@@ -44,11 +48,8 @@ const QuickSort=(props)=>{
             gsap.set(globalDomArray[i],{backgroundColor:'#41E16E'}) //this is making the array green again (whole array to green again)
         console.log('I ran go green')
    }
-   function clearPivot(pivotele)
-   {
-       pivotele.style.backgroundColor="#006E75";
-   } 
-   function helper(i,j,low,high)
+  
+   async function helper(i,j,low,high)
    {
        console.log('[Helper]',i,j,low,high,pivot,globalArray,globalDomArray);
        if(j>high-1)
@@ -70,7 +71,7 @@ const QuickSort=(props)=>{
             .to(boxHIGH,{y:(ithBlock===high?0:-60)},0)
             .to(boxHIGH,{x:`+=${boxHigh}`})
             .to(boxHIGH,{y:0})
-            .then(()=>{
+            .then(async ()=>{
                 let temp=globalArray[i+1];
                 let tempDom=globalDomArray[i+1];
                 globalArray[i+1]=globalArray[high];
@@ -78,8 +79,8 @@ const QuickSort=(props)=>{
                 globalDomArray[high]=tempDom;
                 globalArray[high]=temp;
                 
-                quicksort(low,ithBlock-1);
-                quicksort(ithBlock+1,high);
+                await quicksort(low,ithBlock-1);
+                await quicksort(ithBlock+1,high);
             })
             
        }
@@ -105,7 +106,7 @@ const QuickSort=(props)=>{
             .to(boxI,{y:0})
             // .set(boxI,{backgroundColor:'#006E75'})
             .set(boxJ,{backgroundColor:'#006E75'})
-            .then(()=>{
+            .then(async ()=>{
                 let temp=globalArray[i];
                 let tempDom=globalDomArray[i];
                 globalArray[i]=globalArray[j];
@@ -114,7 +115,7 @@ const QuickSort=(props)=>{
                 globalArray[j]=temp;
                 
                 console.log(globalArray,globalDomArray);
-                helper(i,j+1,low,high);
+                await helper(i,j+1,low,high);
             })
              
         }
@@ -140,12 +141,7 @@ const QuickSort=(props)=>{
         j=low;
         
         gsap.set(pivotele,{backgroundColor:'#FF7A00',onComplete:()=>{helper(i,j,low,high);}})
-
-       
-       
-       
-       
-       
+  
    }
 //    let s=0;
    function quicksort(low,high)
@@ -159,10 +155,7 @@ const QuickSort=(props)=>{
             
             clearColor();
             setDiviedArrayColor(low,high);
-            let s=new String(globalArray.slice(low,high+1));
-            props.setConsoleMessage(`Selected array=> ${s}`);
             
-            partition(low,high);
        }
        else
        {

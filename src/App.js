@@ -13,6 +13,7 @@ import QuickSort from './component/SortingAlgos/QuickSort/QuickSort';
 import BubbleSort from './component/SortingAlgos/bubbleSort/BubbleSort';
 import ShellSort from './component/SortingAlgos/shellSort/Shellsort';
 import No from './component/No/No';
+import BST from './component/Trees/BST/BST';
 function App(props) {
 
  
@@ -43,6 +44,7 @@ function App(props) {
       <Route path="/quickSort" component={QuickSort} />
       <Route path="/bubbleSort" component={BubbleSort} />
       <Route path="/shellsort" component={ShellSort} />
+      <Route path="/bst" component={BST} />
       <Route path="/no" component={No} />
       <Route path="/" exact render={()=><Home loadedHeader={loadedHeader} headerAnimationDone={headerAnimationDone} />} />
 

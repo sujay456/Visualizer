@@ -18,7 +18,7 @@ const Header =(props)=>{
         gsap.registerPlugin(MotionPathPlugin);
         const tl = gsap.timeline();
         const MotionBall=[{y:-70,x:0},{y:-25,x:36},{x:20,y:-30},{x:0,y:2}]
-        gsap.set(['.dot','.move'],{y:-250})
+        gsap.set(['.dot','.move'],{y:-250,opacity:0})
        tl
        .fromTo('svg .letter',{yPercent:30,stagger:{
            from:"end",
@@ -33,8 +33,8 @@ const Header =(props)=>{
         each:0.01
     }},'-=0.3')
        .from('svg',{yPercent:40,scale:1.5},'ok+=0.3')
-       .to('.dot',{y:0})
-       .to('.move',{y:-55,x:-35,ease:'Power2.easeIn',duration:1},'<')
+       .to('.dot',{y:0,opacity:1})
+       .to('.move',{y:-55,x:-35,opacity:1,ease:'Power2.easeIn',duration:1},'<')
        .to('.move',{motionPath:{
            path:MotionBall
        },ease:'Sine.easeOut',duration:1})

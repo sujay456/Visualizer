@@ -22,12 +22,7 @@ const ShellSort=(props)=>{
         for(let x of document.querySelectorAll('.blocks'))
              gsap.set(x,{x:0,y:0});
     }
-    function setColor(boxI,boxJ){
-
-        gsap.set(boxI,{backgroundColor:'#FF3F3F'});
-        gsap.set(boxJ,{backgroundColor:'#FF3F3F'});
-
-    }
+    
     function clearColor()
     {
             for(let x of globalDomArray)

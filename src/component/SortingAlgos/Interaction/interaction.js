@@ -1,6 +1,7 @@
 import React,{useRef} from 'react';
 import './interaction.scss';
-import Button from '../RunButton/run';
+import GRAButtom from '../generateRandomArray/GRAbutton';
+import Button from '../RunButtonS/run';
 import {connect} from 'react-redux';
 import * as actionType from '../../../store/actions/actions';
 
@@ -37,12 +38,37 @@ const Interaction =(props)=>{
         props.setArray(arr);
         props.toggle(true);
     }
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min) ) + min;
+      }
+    const randomArray=()=>
+    {
+        if(!props.paused)
+            return;
+        let arr=[];
+        let randomSize=getRndInteger(3,10);
+        console.log(randomSize);
+        for(let i=0;i<randomSize;++i)
+        {
+            arr.push(getRndInteger(1,100));
+        }
+        if(arr.length>10)
+        {
+            props.setConsoleMessage('Elements Exceeded,Please Enter 10 elements only !',false); return;
+        }
+        
+        props.setConsoleMessage('Running...',true); 
+        // console.log(arr);
 
+        props.setArray(arr);
+        props.toggle(true);
+    }
     return(
         <div className="Interaction">
             <div className="input tab">
                 <p className="input-header Interaction-header">Input  </p>
                 <div ref={inputRef} contentEditable data-placeholder="Enter array in format 10,1,12,69 ....  Only 10 elements!!!"></div>
+                <GRAButtom onclick={randomArray} />
                 <Button onclick={getInput} />    
             </div>
             <div className="console tab">
